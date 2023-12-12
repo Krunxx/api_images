@@ -1,4 +1,5 @@
 import 'package:api_image/cell/grid_cell.dart';
+import 'package:api_image/grid_detail.dart';
 import 'package:api_image/network/network_request.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -57,7 +57,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   gotoDetailPage(BuildContext context, Photo photo){
-
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (BuildContext context) => GridDetails(photo: photo) )
+    );
   }
 
   circularProgress(){
@@ -68,7 +72,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("API Image")),
+      appBar: AppBar(title: Text("API Image Navigator")),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

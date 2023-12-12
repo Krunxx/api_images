@@ -26,4 +26,4 @@ flutter:
 
   uses-material-design: true
   assets:
-    - images/
+    - lib/images/spongebob.gif

@@ -13,7 +13,7 @@ class PhotoCell extends StatelessWidget {
 
         borderRadius: BorderRadius.circular(10),
       ),
-      color: Colors.white,
+      color: Colors.white70,
       child: Padding(
         padding: EdgeInsets.all(10),
         child: Container(
@@ -29,14 +29,24 @@ class PhotoCell extends StatelessWidget {
                   child: Hero(
                     tag: "image${photo.id}",
                     child: FadeInImage.assetNetwork(
-                      placeholder: "images/no_image.png",
-                      image: photo.thumbnailUrl ?? "fallback_url",
-                      width: 100,
+                      placeholder: "lib/images/spongebob.gif",
+                      image: photo.thumbnailUrl ?? "",
+                      width: 20,
                       height: 100,
                     ),
                   ),
                 ),
-              )
+              ),
+              // Padding(
+              //   padding: EdgeInsets.all(20),
+              //   child: Text(
+              //     photo.title ?? "",
+              //     maxLines: 1,
+              //     softWrap: true,
+              //     textAlign: TextAlign.center,
+              //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+              //   ),
+              // ),
             ],
           ),
         ),

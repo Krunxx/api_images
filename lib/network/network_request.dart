@@ -4,10 +4,15 @@ import 'package:api_image/model/photo.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkRequest {
+
   static Uri url = Uri.parse('https://jsonplaceholder.typicode.com/photos');
 
   static List<Photo> parsePhotos(String responseBody) {
+
+    //unbox
     var list = json.decode(responseBody) as List<dynamic>;
+
+    //put together organized
     List<Photo> photos = list.map((model) => Photo.fromJson(model)).toList();
     return photos;
   }
@@ -18,7 +23,7 @@ class NetworkRequest {
     if (response.statusCode == 200) {
       return compute(parsePhotos, response.body);
     } else {
-      throw Exception('Can\'t get Photos');
+      throw Exception('Error 404');
     }
   }
 }
